@@ -8,11 +8,13 @@ const app = express();
 const port = process.env.PORT || 3000;
 const authRoutes = require('./routes/v1/authentication');
 const coursesRoutes = require('./routes/v1/courses');
+const saveUserData = require('./routes/v1/users');
 
 applyMiddleware(app);
 
 app.use(authRoutes)
 app.use(coursesRoutes)
+app.use(saveUserData)
 app.get("/health", (req, res) => {
   res.send("server is running....");
 });
@@ -28,13 +30,5 @@ app.all("*", (req, res, next) => {
 app.use(globalErrorHandler);
 
 
-const main = async ()=>{
-    connectDB()
-    app.listen(port, () => {
-        console.log(`Server is running on port ${port}`);
-    });
-   
-}
 
-
-main()
+module.exports = app
