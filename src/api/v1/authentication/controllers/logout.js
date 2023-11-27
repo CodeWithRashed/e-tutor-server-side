@@ -3,7 +3,6 @@ const removeCookie = (req, res) => {
   console.log("logging out", user);
   res
     .clearCookie("token", { maxAge: 0 })
-    .send({ success: true })
     .clearCookie("token", {
       maxAge: 0,
       secure: process.env.NODE_ENV === "production",
