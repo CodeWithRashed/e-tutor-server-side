@@ -17,6 +17,18 @@ const UserSchema = new Schema({
     type: String,
     required: true,
   },
+  experience: {
+    type: String,
+  },
+  title: {
+    type: String,
+  },
+  category: {
+    type: String,
+  },
+  isTeacherRequest: {
+    type: String,
+  },
 });
 
 const User = model("User", UserSchema);
