@@ -11,7 +11,7 @@ const findAllCourses = async (filter) => {
         }
     };
 
-    const cursor =await Course.find(query,'_id title price img').sort(options.sort);
+    const cursor = await Course.find(query,'_id title price img').sort(options.sort);
 
     return cursor
 }
