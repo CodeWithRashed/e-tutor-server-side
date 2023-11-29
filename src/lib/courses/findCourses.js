@@ -14,7 +14,7 @@ const findCourses = async (query, page, pageSize) => {
             enrollCount: 1
         }
     };
-    const result = await Course.find()
+    const result = await Course.find(query)
     .skip(startIndex)
     .limit(totalPageSize)
     .select('_id thumbnail title teacher price image enrollCount')
