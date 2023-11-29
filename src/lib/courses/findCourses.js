@@ -22,7 +22,7 @@ const findCourses = async (query, page, pageSize) => {
     const result = await Course.find(findQuery)
     .skip(startIndex)
     .limit(totalPageSize)
-    .select('_id thumbnail title teacher price image enrollCount duration level language enrollCount, rating')
+    .select('_id thumbnail description title teacher price image enrollCount duration level language enrollCount rating')
     .populate('teacher', 'name email image category, experience, title')
     .sort(options.sort)
     .exec();
