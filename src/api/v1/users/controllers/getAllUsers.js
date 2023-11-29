@@ -11,6 +11,10 @@ const getAllUser = async (req, res) => {
       isTeacherRequest: { $in: ["Pending", "Accepted", "Rejected"] },
     };
   }
+  if (isTeacherRequest == "Accepted") {
+    query = {  isTeacherRequest: "Accepted"}
+  }
+  
   if (isTeacherRequest == "Pending") {
     query = { isTeacherRequest: "Pending" };
   }
