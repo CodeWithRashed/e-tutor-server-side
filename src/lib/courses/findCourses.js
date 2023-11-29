@@ -12,7 +12,7 @@ const findCourses = async (query) => {
   }
 
   if (isApproved == "All") {
-    findQuery = { isApproved: { $in: ["Pending", "Accepted", "Rejected"] } };
+    findQuery = { isApproved: { $in: ["Pending", "Approved", "Rejected"] } };
   }
 
 
