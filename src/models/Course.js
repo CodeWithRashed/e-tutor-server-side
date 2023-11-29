@@ -37,6 +37,10 @@ const CourseSchema = new Schema({
     type: Number,
     required: true,
   },
+  isApproved: {
+    type: String,
+    required: true,
+  },
   rating: {
     type: Number,
     required: true,
