@@ -1,10 +1,15 @@
 const { Course } = require("../../models");
 
 const findCourses = async (query, page, pageSize) => {
+
+    let findQuery = query
+
+
     
     let totalPageSize = null;
     if (pageSize) {
         totalPageSize = pageSize;
+        findQuery={}
     }
     const startIndex = (page - 1) * pageSize;
  
@@ -14,11 +19,11 @@ const findCourses = async (query, page, pageSize) => {
             enrollCount: 1
         }
     };
-    const result = await Course.find(query)
+    const result = await Course.find(findQuery)
     .skip(startIndex)
     .limit(totalPageSize)
-    .select('_id thumbnail title teacher price image enrollCount')
-    .populate('teacher', 'name email image')
+    .select('_id thumbnail title teacher price image enrollCount duration level language enrollCount, rating')
+    .populate('teacher', 'name email image category, experience, title')
     .sort(options.sort)
     .exec();
     return result
