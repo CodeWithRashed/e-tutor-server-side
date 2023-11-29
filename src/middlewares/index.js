@@ -1,7 +1,7 @@
 const cookieParser = require("cookie-parser");
 const cors = require('cors');
 const express = require("express");
-const { LOCAL_CLIENT, CLIENT, LOCAL_CLIENT_SECOND } = require("../config/defaults");
+const { LOCAL_CLIENT, LOCAL_CLIENT_SECOND, CLIENT_FIREBASE } = require("../config/defaults");
 
 const applyMiddleware = (app)=>{
     
