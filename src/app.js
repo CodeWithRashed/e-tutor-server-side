@@ -9,12 +9,14 @@ const port = process.env.PORT || 3000;
 const authRoutes = require('./routes/v1/authentication');
 const coursesRoutes = require('./routes/v1/courses');
 const saveUserData = require('./routes/v1/users');
+const assignmentRoute = require('./routes/v1/assignment');
 
 applyMiddleware(app);
 
 app.use(authRoutes)
 app.use(coursesRoutes)
 app.use(saveUserData)
+app.use(assignmentRoute)
 app.get("/health", (req, res) => {
   res.send("server is running....");
 });
