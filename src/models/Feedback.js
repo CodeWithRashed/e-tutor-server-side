@@ -1,24 +1,25 @@
 const { model, Schema, default: mongoose } = require("mongoose");
 
-const RattingSchema = new Schema({
-  rattingFor: {
+const FeedbackSchema = new Schema({
+    feedbackFor: {
     type: mongoose.Types.ObjectId,
     ref: "Course",
   },
-  rattingCount: {
+  feedbackTitle: {
     type: String,
     required: true,
   },
-  rattingDetails: {
+  
+  feedbackDescription: {
     type: String,
     required: true,
   },
-  rattingMadeBy: {
+  feedbackBy: {
     type: mongoose.Types.ObjectId,
     ref: "User",
   },
 });
 
-const Ratting = model("Ratting", RattingSchema);
+const Feedback = model("Feedback", FeedbackSchema);
 
-module.exports = Ratting;
+module.exports = Feedback;

@@ -2,6 +2,9 @@ const { Course } = require("../../models");
 
 const findCourses = async (query) => {
   let findQuery = {};
+  if(query._id){
+    findQuery = {_id: query._id}
+  }
   let page = parseInt(query.page);
   let pageSize = parseInt(query.pageSize);
   let isApproved = query.isApproved;

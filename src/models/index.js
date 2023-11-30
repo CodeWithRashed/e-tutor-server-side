@@ -1,8 +1,10 @@
 const User = require('./User')
 const Course = require('./Course')
-const Ratting = require('./Ratting')
+const Assignment = require('./Assignment')
+const Feedback = require('./Feedback')
 module.exports = {
   User,
   Course,
-  Ratting,
+  Assignment,
+  Feedback
 };
