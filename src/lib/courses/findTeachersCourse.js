@@ -1,9 +1,13 @@
 const { Course } = require("../../models");
 
-
 const findTeachersCourse = async (query) => {
-    
-  const result = await Course.find(query).select('_id title price description thumbnail isApproved');
+  let findQuery = query;
+  if (findQuery.teacher == "null" || findQuery.teacher === undefined) {
+    findQuery = {};
+  }
+  const result = await Course.find(findQuery).select(
+    "_id title price description teacher thumbnail isApproved"
+  ).populate("teacher", "name email image category, experience, title")
   return result;
 };
 
